@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+ width: 100%;
+ margin: 0;
+ font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Шапка */
+.page-header {
+  background-color: #000;
+  height: 70px;
+}
+
+/* Логотип */
+.logo img {
+    margin-top: 4px;
+  height: 60px;
+  display: block;
+}
+
+/* Меню */
+.nav__list {
+  display: flex;
+  list-style: none;
+  margin-top: 12px;
+  padding: 0;
+  gap: 40px; /* расстояние между пунктами меню */
+}
+
+.nav__list a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  padding: 10px 0;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.nav__list a:hover {
+  color: #0679fd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.job-section {
+  padding: 50px 20px;
+}
+
+.job-title {
+  text-align: center;
+  color: #003366;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.job-card {
+  background-color: white;
+  border: 1px solid #ccddee;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.job-card h3 {
+  color: #003366;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.job-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #003366;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.job-btn:hover {
+  background-color: #0055cc;
+}
+
+.popup-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.form-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.form-content h3 {
+  margin-top: 0;
+  color: #003366;
+}
+
+.form-content input,
+.form-content textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-content button {
+  width: 100%;
+  padding: 10px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-content button:hover {
+  background-color: #0055cc;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+
+
+
+.footer {
+  background: #000;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+}
+
+.footer__info {
+  display: flex;
+  gap: 30px; /* Расстояние между номером и email */
+  align-items: center;
+}
+
+
+.footer__info a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer__social a {
+  color: white;
+  font-size: 30px;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer__social a:hover {
+  color: #267cff;
+}
