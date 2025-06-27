@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Kontakt - Współpraca</title>
+  <link rel="stylesheet" href="./Kontakt.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="page-header">
+    <div class="container">
+      <div class="logo">
+        <a href="./Strona-glówna.html">
+          <img src="./Photo/Zrzut ekranu 2025-06-25 120628.png" alt="Logo firmy">
+        </a>
+      </div>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="#">Strona główna</a></li>
+          <li><a href="./ONas.html">O nas</a></li>
+          <li><a href="./Oferta.html">Oferta</a></li>
+          <li><a href="./OfertyPracy.html">Oferty pracy</a></li>
+          <li><a href="./Blog.html">Blog</a></li>
+          <li><a href="./Kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-contact bg-primary text-white">
+    <div class="container">
+      <nav class="breadcrumbs text-light">
+        <a href="#" class="text-light">Strona główna</a> &gt; <span>Kontakt</span>
+      </nav>
+      <h1>W czym możemy Ci pomóc?</h1>
+    </div>
+  </section>
+
+  <!-- Contact Overview -->
+  <section class="contact-overview bg-dark text-white">
+    <div class="container flex-row">
+      <div class="contact-info">
+        <span class="label text-muted">Kontakt</span>
+        <p class="phone display-4">+48 797 708 928</p>
+        <p class="hours">poniedziałek – piątek 8:00 – 16:00</p>
+        <a href="mailto:a.buzuk@personaldevelopment.com.pl" class="email-link text-white mb-3 d-block">
+          <i class="fa-solid fa-envelope fa-lg"></i> a.buzuk@personaldevelopment.com.pl
+        </a>
+        <button class="btn-outline-light" id="showFormBtn">Wypełnij formularz</button>
+      </div>
+      <div class="contact-illustration text-center">
+        <i class="fa-solid fa-envelope-open-text fa-7x text-light"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Contact Form -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeFormBtn">&times;</span>
+      <h2>Formularz kontaktowy</h2>
+      <form id="contactForm" action="https://formsubmit.co/ajax/a.buzuk@personaldevelopment.com.pl" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="topic">Obszar zapytania <span>*</span></label>
+            <select id="topic" name="topic" required>
+              <option value="">– Wybierz –</option>
+              <option value="rekrutacja">Rekrutacja</option>
+              <option value="outsourcing">Outsourcing</option>
+              <option value="inne">Inne</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">Imię i nazwisko <span>*</span></label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Numer telefonu <span>*</span></label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Adres e-mail <span>*</span></label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group full-width">
+            <label for="message">Treść zapytania <span>*</span></label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="form-group full-width consent">
+            <input type="checkbox" id="consent1" name="consent1" required />
+            <label for="consent1">Wyrażam zgodę na przetwarzanie moich danych osobowych.</label>
+          </div>
+          <div class="form-group full-width consent">
+            <input type="checkbox" id="consent2" name="consent2" />
+            <label for="consent2">Wyrażam zgodę na otrzymywanie informacji handlowych.</label>
+          </div>
+          <div class="form-group full-width">
+            <button type="submit" class="btn-primary w-100">Wyślij</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('contactModal');
+    const showBtn = document.getElementById('showFormBtn');
+    const closeBtn = document.getElementById('closeFormBtn');
+
+    showBtn.onclick = () => modal.style.display = 'block';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept':'application/json' }});
+      if (res.ok) {
+        form.innerHTML = '<p>Dziękujemy za wiadomość!<br>Skontaktujemy się w ciągu 24h.</p>';
+      } else {
+        alert('Coś poszło nie tak. Spróbuj ponownie później.');
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__info">
+      <a href="tel:+48797708928"><i class="fa-solid fa-phone"></i> +48 797 708 928</a>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:a.buzuk@personaldevelopment.com.pl">a.buzuk@personaldevelopment.com.pl</a></p>
+    </div>
+    <div class="footer__social">
+      <a href="viber://chat?number=%2B48797708928" target="_blank"><i class="fa-brands fa-viber"></i></a>
+      <a href="https://wa.me/48797708928" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://t.me/YourTelegramUsername" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+  </footer>
+
+
+
+</body>
+</html>
