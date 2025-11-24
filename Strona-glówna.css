@@ -7,9 +7,13 @@
 
 body {
  width: 100%;
- margin: 0;
+margin: 0px;
  font-family: 'Montserrat', sans-serif;
 }
+
+
+
+/* Header */
 .container {
   max-width: 1300px;
   margin: 0 auto;
@@ -17,42 +21,112 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 70px; /* важно для вертикального центрирования */
 }
 
-/* Шапка */
 .page-header {
-  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 70px;
+
+  /* Прозрачный фон с размытием */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+
+  /* Лёгкая линия снизу */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  z-index: 999;
 }
 
-/* Логотип */
+/* ЛОГО — центрируем по высоте и подгоняем размер */
+.logo {
+  display: flex;
+  align-items: center; /* вертикально выравнивает логотип внутри контейнера */
+  height: 100%;
+}
+.logo a { display: inline-flex; align-items: center; height: 100%; }
 .logo img {
-    margin-top: 4px;
-  height: 60px;
+  height: 48px;        /* аккуратный размер для шапки */
+  width: auto;
   display: block;
+  filter: brightness(1.6) contrast(1.05); /* осветлить логотип */
+  transition: transform 0.18s ease;
 }
 
-/* Меню */
+/* при желании — лёгкое увеличение логотипа при наведении */
+.logo a:hover img,
+.logo a:focus img {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Главное меню */
 .nav__list {
   display: flex;
   list-style: none;
-  margin-top: 12px;
   padding: 0;
-  gap: 40px; /* расстояние между пунктами меню */
+  margin: 0;
+  gap: 36px; /* расстояние между пунктами меню */
+  align-items: center;
 }
 
+/* Ссылки — подготовка для псевдоэлемента ::after */
 .nav__list a {
+  position: relative;
+  display: inline-block;
   color: #fff;
   text-decoration: none;
   font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   padding: 10px 0;
-  display: inline-block;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
+  outline: none; /* фокусируемся через :focus-visible ниже */
 }
 
-.nav__list a:hover {
-  color: #0679fd;
+/* Псевдоэлемент — выезжающая полоска */
+.nav__list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;                   /* расстояние полоски от текста */
+  height: 3px;                    /* толщина полоски */
+  width: 100%;
+  background: linear-gradient(90deg, #1b9bff, #0660d8);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.34s cubic-bezier(.2,.9,.2,1), opacity 0.2s;
+  opacity: 0.98;
+  border-radius: 3px;
+  box-shadow: 0 6px 14px rgba(6,121,253,0.08); /* лёгкая тень для глубины */
+}
+
+/* Ховер / фокус — полоска выезжает */
+.nav__list a:hover::after,
+.nav__list a:focus::after,
+.nav__list a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Мягкое изменение цвета текста при взаимодействии */
+.nav__list a:hover,
+.nav__list a:focus,
+.nav__list a:focus-visible {
+  color: #ffffff;
+}
+
+/* Активный пункт меню (для текущей страницы) */
+.nav__list a.is-active::after,
+.nav__list li.is-active > a::after {
+  transform: scaleX(1);
+}
+
+/* Доступность: видимый фокус для клавиатуры */
+.nav__list a:focus-visible {
+  outline: 2px solid rgba(6,121,253,0.18);
+  outline-offset: 6px;
+  border-radius: 4px;
 }
 
 
@@ -66,19 +140,14 @@ body {
 
 
 
-
-
-
-
-
-
+/*Hero*/
 
 
 .hero {
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('./Photo/pngtree-arc-welding-of-a-steel-at-work-site-image_15730076.jpg'); /* замени на путь к своему изображению */
   background-size: cover;
   background-position: center;
-  height: 92vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,172 +183,442 @@ body {
   margin-bottom: 30px;
 }
 
-.hero__button {
-  background-color: #267cff;
-  color: white;
-  text-decoration: none;
-  padding: 18px 40px;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: background 0.3s ease;
 
+
+
+
+.hero__button {
+  background: rgba(255,255,255,0.25); /* ЯРЧЕ */
+  backdrop-filter: blur(10px);        /* сильнее размытие */
+  color: #ffffff;
+  padding: 18px 70px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+
+  border: 1px solid rgba(255,255,255,0.45); /* более заметная рамка */
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,0.35),
+    inset 0 0 8px rgba(255,255,255,0.4); /* внутреннее свечение (аккуратное) */
+
+  transition: 0.3s ease;
 }
 
 .hero__button:hover {
-  background-color: #1316d1;
+  background: rgba(255,255,255,0.40); /* ярче при наведении */
+  border-color: rgba(255,255,255,0.7);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.45),
+    inset 0 0 10px rgba(255,255,255,0.5);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .features {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  text-align: center;
-  padding: 60px 20px;
+  gap: 30px;
   max-width: 1200px;
+  padding: 80px 20px;
   margin: 0 auto;
-  position: relative;
-}
-
-.features::before {
-  content: '';
-  position: absolute;
-  top: 85px;
-  left: 60px;
-  right: 60px;
-  height: 2px;
-  background-color: #267cff;
-  z-index: 0;
 }
 
 .feature {
-  width: 30%;
-  position: relative;
-  z-index: 1;
+  background: #ffffff;
+  padding: 35px 25px 45px;
+  border-radius: 16px;
+  width: 32%;
+  text-align: center;
+
+  /* премиальная тень */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
+/* эффект наведения */
+.feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+/* иконка */
 .feature__icon {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto 20px;
+  width: 65px;
+  height: 65px;
+  margin: -60px auto 25px; /* иконка как будто “вылезает” из карточки */
   background-color: #267cff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
+
+  /* лёгкая тень под иконкой */
+  box-shadow: 0 4px 14px rgba(38,124,255,0.4);
 }
 
+/* Заголовок */
 .feature h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #111;
 }
 
+/* Описание */
 .feature p {
   font-size: 16px;
-  color: #333;
-  line-height: 1.5;
+  line-height: 1.55;
+  color: #444;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .offer {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
   background: #fff;
+  color: #111;
 }
 
+/* Заголовок секции */
 .offer__title {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 40px;
+  letter-spacing: 1px;
+  color: #111;
 }
 
+/* Сетка карточек */
 .offer__items {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
 }
 
+/* Одиночная карточка */
 .offer__item {
-  flex: 1 1 30%;
-  background: #fff;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 0 20px 26px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  box-shadow: 0 8px 20px rgba(15,20,30,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
+/* Эффект при наведении — лёгкое поднятие и усиление тени */
+.offer__item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(10,20,40,0.08);
+}
+
+/* Изображение: фиксированная высота + обрезка (cover) */
 .offer__item img {
   width: 100%;
-  height: auto;
+  height: 220px;           /* подогнать при желании */
+  object-fit: cover;
   display: block;
-  margin-bottom: 20px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: transform 0.6s ease;
 }
 
+/* Небольшой зум картинки при hover карточки */
+.offer__item:hover img {
+  transform: scale(1.06);
+}
+
+/* Заголовок карточки */
 .offer__item h3 {
   font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-weight: 800;
+  margin: 18px 0 8px;
+  color: #121212;
 }
 
+/* Текст карточки */
 .offer__item p {
   font-size: 15px;
-  color: #333;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 12px;
+  flex-grow: 1;
 }
 
-
-.faq-section {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 60px 20px;
-  max-width: auto;
-  margin: 0 auto;
-  gap: 40px;
-  background-color: black;
-}
-
-.faq-content {
-  flex: 1 1 60%;
-}
-
-.faq-title {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  border-left: 5px solid #267cff;
-  padding-left: 10px;
-  color: white;
-}
-
-.faq-item {
-  margin-bottom: 30px;
-  color: white;
-}
-
-.faq-item h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.faq-item p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: white;
-}
-
-.faq-image {
-  flex: 1 1 35%;
-
-}
-
-.faq-image img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Если ты хочешь кнопку под каждым описанием, стиль (опционально) */
+.offer__item .btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 22px;
   border-radius: 8px;
+  background: #267cff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
+.offer__item .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(38,124,255,0.25); }
+
+
+
+
+
+
+
+:root{
+  --accent: #267cff;
+  --bg-start: #050507;
+  --bg-end: #121212;
+  --max-width: 1200px; /* ширина контента - уменьши/увеличь при необходимости */
+}
+
+/* ====== FAQ SECTION ====== */
+.faq-section{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 60px 30px;
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  color:#fff;
+
+  display:flex;
+  gap:48px;
+
+  /* важное: не тянем колонки по высоте */
+  align-items:flex-start;
+
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ====== ЛЕВАЯ КОЛОНКА (контент) ====== */
+.faq-content{
+  flex:1 1 62%;
+  min-width:280px;
+  max-width:760px; /* ограничиваем ширину текста, чтобы не было "растягивания" */
+}
+
+.faq-title{
+  font-size:30px;
+  font-weight:800;
+  margin:0 0 22px;
+  padding-left:12px;
+  border-left:6px solid var(--accent);
+  letter-spacing:0.3px;
+  color:#fff;
+}
+
+/* единый контейнер для вопросов: убираем лишние большие поля */
+.faq-item{
+  margin-bottom:18px;
+  padding-bottom:16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Вопрос (кнопка) */
+.faq-q{
+  width:100%;
+  background:transparent;
+  border:none;
+  padding:8px 0;
+  text-align:left;
+  color:#fff;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* + / - */
+.faq-q::after{
+  content:"+";
+  width:28px;
+  height:28px;
+  line-height:28px;
+  text-align:center;
+  color:var(--accent);
+  background: rgba(255,255,255,0.03);
+  border-radius:6px;
+  font-weight:900;
+  transition: .18s ease;
+}
+.faq-q[aria-expanded="true"]::after{
+  content:"−";
+  background: rgba(38,124,255,0.12);
+}
+
+/* Ответ */
+.faq-a{
+  margin-top:10px;
+  padding-left:6px;
+}
+.faq-a p{
+  margin:0;
+  color:#d0d0d0;
+  font-size:15px;
+  line-height:1.6;
+  max-width:720px; /* чтобы строка не была слишком длинной */
+}
+
+/* ====== ПРАВАЯ КОЛОНКА — стеклянная панель ====== */
+/* делаем колонку НЕ растянутой по высоте, содержимое центрируем */
+.faq-image{
+  flex:0 0 380px;       /* фиксированная ширина колонки */
+  max-width:380px;
+  position:relative;
+
+  align-self: center;   /* колонка центрируется по высоте контента слева */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* стеклянная карточка — не занимает всю высоту, выглядит компактно */
+.faq-glass{
+  width:100%;
+  padding:22px 18px;
+  border-radius:12px;
+
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+
+  box-shadow: 0 14px 36px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.03);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  /* фиксированная/компактная высота, чтобы панель не "растягивалась" */
+  min-height:200px;
+  max-height:320px;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+/* Иконка */
+.glass-icon{
+  width:56px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background: linear-gradient(180deg,#2f80ff,#1661d9);
+  color:#fff;
+  font-size:26px;
+  font-weight:900;
+  margin-bottom:12px;
+  box-shadow: 0 8px 20px rgba(38,124,255,0.28);
+}
+
+/* Заголовок/текст/кнопка в панели */
+.glass-title{
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:6px;
+  color:#fff;
+}
+.glass-text{
+  font-size:14px;
+  color:rgba(230,230,255,0.85);
+  margin-bottom:12px;
+}
+.glass-cta{
+  display:inline-block;
+  padding:10px 20px;
+  background: linear-gradient(90deg,#2f86ff,#1761d9);
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:700;
+  box-shadow: 0 8px 20px rgba(23,97,217,0.28);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.glass-cta:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(23,97,217,0.4);
+}
+
+/* ====== Мелкие правки внешнего вида ====== */
+.faq-title, .faq-q { text-rendering: optimizeLegibility; -webkit-font-smoothing:antialiased; }
+.faq-section * { box-sizing: border-box; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -296,11 +635,19 @@ body {
 
 
 .contact-cta {
+  width: 100vw;                     /* теперь блок реально на всю ширину окна */
   position: relative;
-  background-image: url('./Photo/ofiss.jpg'); /* ← ссылка на нужное фото */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;               /* убирает ограничения контейнера */
+  margin-right: -50vw;
+
+  background-image: url('./Photo/ofiss.jpg');
   background-size: cover;
   background-position: center;
-  height: 300px;
+  background-repeat: no-repeat;
+
+  height: 320px;                    /* можешь менять */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -308,37 +655,41 @@ body {
   color: white;
 }
 
-
 .contact-cta__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.55);   /* приятное затемнение */
+  backdrop-filter: blur(3px);
   z-index: 1;
 }
 
 .contact-cta__content {
   position: relative;
   z-index: 2;
+  max-width: 90%;
 }
 
 .contact-cta__content h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 24px;
 }
 
 .contact-cta__button {
   background-color: #267cff;
   color: white;
-  padding: 12px 32px;
+  padding: 14px 34px;
   text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px rgba(38,124,255,0.4);
 }
 
 .contact-cta__button:hover {
   background-color: #135dd1;
+  box-shadow: 0 0 20px rgba(19,93,209,0.6);
 }
 
 

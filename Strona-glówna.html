@@ -8,11 +8,15 @@
     <title>PersonalDevelopment</title>
 </head>
 <body>
+
+
+
+
 <header class="page-header">
   <div class="container">
     <div class="logo">
       <a href="./Strona-glówna.html">
-        <img src="./Photo/Zrzut ekranu 2025-06-25 120628.png" alt="Logo firmy" >
+        <img src="./Photo/logo_transparent (1).png" alt="Logo firmy" >
       </a>
     </div>
 
@@ -29,6 +33,12 @@
   </div>
 </header>
 
+
+
+
+
+
+
    <main>
 <section class="hero">
   <div class="hero__content">
@@ -37,6 +47,16 @@
     <a href="./Kontakt.html" class="hero__button">KONTAKT</a>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
 
 <section class="features">
   <div class="feature">
@@ -64,6 +84,19 @@
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="offer">
   <h2 class="offer__title">OFERTA SPECJALNA</h2>
 
@@ -88,35 +121,84 @@
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="faq-section">
   <div class="faq-content">
     <h2 class="faq-title">Personal Development</h2>
 
     <div class="faq-item">
-      <h3>Jakich specjalistów rekrutujecie?</h3>
-      <p>Specjalizujemy się w łączeniu wysoko wykwalifikowanych specjalistów z Europy Wschodniej w różnych dziedzinach.</p>
+      <button class="faq-q" aria-expanded="false">Jakich specjalistów rekrutujecie?</button>
+      <div class="faq-a" hidden>
+        <p>Specjalizujemy się w łączeniu wysoko wykwalifikowanych specjalistów z Europy Wschodniej w różnych dziedzinach.</p>
+      </div>
     </div>
 
     <div class="faq-item">
-      <h3>Jak długo trwa proces rekrutacji?</h3>
-      <p>Czas realizacji zamówień rekrutacyjnych zależy od sytuacji wizowej kandydata i wymagań klienta.</p>
+      <button class="faq-q" aria-expanded="false">Jak długo trwa proces rekrutacji?</button>
+      <div class="faq-a" hidden>
+        <p>Czas realizacji zamówień rekrutacyjnych zależy od sytuacji wizowej kandydata i wymagań klienta.</p>
+      </div>
     </div>
 
     <div class="faq-item">
-      <h3>Co się stanie, jeśli pracownik nie spełni oczekiwań?</h3>
-      <p>Oferujemy okres próbny, a w razie potrzeby zapewniamy szybką wymianę pracowników.</p>
+      <button class="faq-q" aria-expanded="false">Co się stanie, jeśli pracownik nie spełni oczekiwań?</button>
+      <div class="faq-a" hidden>
+        <p>Oferujemy okres próbny, a w razie potrzeby zapewniamy szybką wymianę pracowników.</p>
+      </div>
     </div>
 
     <div class="faq-item">
-      <h3>Czy oferujecie szkolenia dla zatrudnionych pracowników?</h3>
-      <p>Tak, oferujemy usługi szkoleniowe dostosowane do profili.</p>
+      <button class="faq-q" aria-expanded="false">Czy oferujecie szkolenia dla zatrudnionych pracowników?</button>
+      <div class="faq-a" hidden>
+        <p>Tak, oferujemy usługi szkoleniowe dostosowane do profili.</p>
+      </div>
     </div>
   </div>
 
-  <div class="faq-image">
-    <img src="./Photo/rekrutacja.jpg" alt="staff image">
+ <div class="faq-image" aria-hidden="true">
+  <div class="faq-glass">
+    <div class="glass-icon">✓</div>
+    <div class="glass-title">Wsparcie zawodowe</div>
+    <div class="glass-text">Rekrutacje • Delegacje • Szkolenia</div>
+    <a href="./Kontakt.html" class="glass-cta">Skontaktuj się</a>
   </div>
+</div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,4 +241,44 @@
 
   
 </body>
+
+<script>
+  (function(){
+    const buttons = document.querySelectorAll('.faq-q');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+        // Если нужно закрывать все остальные — раскомментируй блок ниже
+        buttons.forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          const panel = b.nextElementSibling;
+          if (panel) panel.hidden = true;
+        });
+
+        // откроем/закроем текущий
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          const panel = btn.nextElementSibling;
+          if (panel) panel.hidden = false;
+          // плавный скролл к элементу (опционально)
+          // btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+          const panel = btn.nextElementSibling;
+          if (panel) panel.hidden = true;
+        }
+      });
+
+      // клавиатурный доступ — Enter / Space
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+  })();
+</script>
 </html>
