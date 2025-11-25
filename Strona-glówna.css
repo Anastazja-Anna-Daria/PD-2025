@@ -610,87 +610,89 @@ margin: 0px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .contact-cta {
-  width: 100vw;                     /* теперь блок реально на всю ширину окна */
+  width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
-  margin-left: -50vw;               /* убирает ограничения контейнера */
+  margin-left: -50vw;
   margin-right: -50vw;
 
-  background-image: url('./Photo/ofiss.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  margin-top: 40px; /* отступ сверху */
+  height: 250px; /* уменьшенная высота */
 
-  height: 320px;                    /* можешь менять */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+
+  /* Мягкий сине-фиолетовый градиент */
+  background: radial-gradient(circle at 50% 40%, rgba(104, 118, 255, 0.30), transparent 65%),
+              radial-gradient(circle at 80% 70%, rgba(72, 38, 255, 0.20), transparent 70%),
+              radial-gradient(circle at 20% 80%, rgba(150, 70, 255, 0.20), transparent 75%),
+              #111524;
+  background-blend-mode: soft-light;
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.04);
 }
 
+/* Overlay */
 .contact-cta__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);   /* приятное затемнение */
-  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
   z-index: 1;
 }
 
+/* Контент */
 .contact-cta__content {
   position: relative;
   z-index: 2;
   max-width: 90%;
 }
 
+/* Заголовок */
 .contact-cta__content h2 {
   font-size: 28px;
   font-weight: 800;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 6px rgba(120, 60, 255, 0.4);
 }
 
+/* Кнопка — СИНЯЯ */
 .contact-cta__button {
-  background-color: #267cff;
+  background-color: #2f66ff;    /* синий цвет в стиле сайта */
   color: white;
-  padding: 14px 34px;
+  padding: 12px 34px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 16px;
   transition: 0.3s ease;
-  box-shadow: 0 0 15px rgba(38,124,255,0.4);
+  box-shadow: 0 0 12px rgba(47, 102, 255, 0.45); 
 }
 
 .contact-cta__button:hover {
-  background-color: #135dd1;
-  box-shadow: 0 0 20px rgba(19,93,209,0.6);
+  background-color: #1b4de4;
+  box-shadow: 0 0 18px rgba(47, 102, 255, 0.6);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

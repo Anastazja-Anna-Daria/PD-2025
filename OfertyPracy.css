@@ -5,10 +5,18 @@
 }
 
 body {
- width: 100%;
- margin: 0;
- font-family: 'Montserrat', sans-serif;
+ background: linear-gradient(135deg, #00020a 0%, #220f55 50%, #0336c2 100%);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
+
+
+.job-card {
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+}
+
 
 .container {
   max-width: 1300px;
@@ -66,6 +74,12 @@ body {
 
 
 
+
+
+
+
+
+
 .job-section {
   padding: 50px 20px;
 }
@@ -85,45 +99,146 @@ body {
   margin: 0 auto;
 }
 
-.job-card {
-  background-color: white;
-  border: 1px solid #ccddee;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Glassmorphism card */
+.job-card.glass {
+background: linear-gradient(180deg,
+  rgba(20, 22, 32, 0.55) 0%,
+  rgba(15, 17, 28, 0.35) 100%
+);
+color: #f5f5f5;
+
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff; /* текст во всех карточках на тёмном градиентном фоне — белый/приглушённый */
+  box-shadow: 0 10px 30px rgba(250, 250, 250, 0.45), inset 0 1px 0 rgba(236, 234, 234, 0.03);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  transition: transform .22s ease, box-shadow .22s ease;
 }
 
-.job-card:hover {
-  transform: translateY(-5px);
+/* Hover subtle lift */
+.job-card.glass:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(236, 237, 238, 0.55);
 }
 
-.job-card h3 {
-  color: #003366;
-  font-size: 20px;
-  margin-bottom: 10px;
+/* Заголовок — крупнее, контрастнее */
+.job-card.glass .job-name{
+  margin:0 0 10px 0;
+  font-size:18px;
+  line-height:1.2;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(235, 236, 240, 0.45);
 }
 
-.job-card p {
-  margin: 5px 0;
-  color: #333;
+/* Метаданные в одну линию, без жирного текста */
+.job-card.glass .job-meta{
+  list-style:none;
+  padding:0;
+  margin:0 0 10px 0;
+  font-size:14px;
+  color: rgba(255,255,255,0.88);
+}
+.job-card.glass .job-meta li{
+  margin:6px 0;
+  display:flex;
+  gap:8px;
+  align-items:center;
 }
 
-.job-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #003366;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+/* Метка (label) — цветом вместо жирности */
+.job-card.glass .meta-label{
+  display:inline-block;
+  min-width:92px;
+  color: rgba(255,255,255,0.95);
+  font-weight:400; /* без сильного полужирного */
+  opacity:0.95;
 }
 
-.job-btn:hover {
-  background-color: #0055cc;
+/* Описание — чуть мягче */
+.job-card.glass .job-desc{
+  margin:0 0 12px 0;
+  color: rgba(255,255,255,0.86);
+  font-size:14px;
+  min-height:44px;
 }
+
+/* Подвал карточки — кнопка выровнена вправо */
+.job-card.glass .card-footer{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+/* Кнопка — градиент, чёткая, без большого веса текста */
+.job-card.glass .job-btn{
+  display:inline-block;
+  padding:9px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  color:#fff;
+  background: linear-gradient(180deg, #2b6ef6 0%, #1d4ed8 100%);
+  box-shadow: 0 8px 20px rgba(45,85,255,0.18);
+  font-size:14px;
+  font-weight:600;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover для кнопки */
+.job-card.glass .job-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(45,85,255,0.22);
+  opacity:0.98;
+}
+
+/* Если на очень светлом фоне: тёмная версия текста (не обязательно) */
+.job-card.glass.inverse {
+  color: #0b1b2b;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.85) 100%);
+  border: 1px solid rgba(11,20,30,0.06);
+  box-shadow: 0 8px 20px rgba(6,20,40,0.06);
+  backdrop-filter: blur(6px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .popup-form {
   position: fixed;
@@ -187,6 +302,20 @@ body {
   color: #333;
   cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

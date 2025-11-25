@@ -9,18 +9,21 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="page-header">
-    <div class="container">
-      <div class="logo">
-        <a href="./Strona-glówna.html">
-          <img src="./Photo/Zrzut ekranu 2025-06-25 120628.png" alt="Logo firmy">
-        </a>
-      </div>
+  <!-- Header (тот же, что и на главной) -->
+  <header class="page-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="./Strona-glówna.html" aria-label="Strona główna">
+        <!-- Логотип (локальный файл) -->
+        <img src="/mnt/data/4df9454c-c4d9-4af6-b310-f03b2faf2e85.png" alt="Logo firmy">
+      </a>
 
-      <nav class="nav">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Otwórz menu">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="mainNav" class="nav" role="navigation" aria-label="Główne menu">
         <ul class="nav__list">
-          <li><a href="#">Strona główna</a></li>
+          <li><a href="./Strona-glówna.html">Strona główna</a></li>
           <li><a href="./ONas.html">O nas</a></li>
           <li><a href="./Oferta.html">Oferta</a></li>
           <li><a href="./OfertyPracy.html">Oferty pracy</a></li>
@@ -31,40 +34,47 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-contact bg-primary text-white">
-    <div class="container">
-      <nav class="breadcrumbs text-light">
-        <a href="#" class="text-light">Strona główna</a> &gt; <span>Kontakt</span>
-      </nav>
-      <h1>W czym możemy Ci pomóc?</h1>
-    </div>
-  </section>
+  <!-- Отступ чтобы фиксированная шапка не закрывала контент -->
+  <div style="height:70px;"></div>
 
-  <!-- Contact Overview -->
-  <section class="contact-overview bg-dark text-white">
-    <div class="container flex-row">
-      <div class="contact-info">
-        <span class="label text-muted">Kontakt</span>
-        <p class="phone display-4">+48 797 708 928</p>
-        <p class="hours">poniedziałek – piątek 8:00 – 16:00</p>
-        <a href="mailto:a.buzuk@personaldevelopment.com.pl" class="email-link text-white mb-3 d-block">
-          <i class="fa-solid fa-envelope fa-lg"></i> a.buzuk@personaldevelopment.com.pl
-        </a>
-        <button class="btn-outline-light" id="showFormBtn">Wypełnij formularz</button>
+  <main class="site-main">
+    <!-- Hero (без breadcrumb) -->
+    <section class="hero-contact bg-primary text-white">
+      <div class="container">
+        <h1>W czym możemy Ci pomóc?</h1>
       </div>
-      <div class="contact-illustration text-center">
-        <i class="fa-solid fa-envelope-open-text fa-7x text-light"></i>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Modal Contact Form -->
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeFormBtn">&times;</span>
-      <h2>Formularz kontaktowy</h2>
-      <form id="contactForm" action="https://formsubmit.co/ajax/a.buzuk@personaldevelopment.com.pl" method="POST">
+    <!-- Contact Overview -->
+    <section class="contact-overview bg-dark text-white">
+      <div class="container flex-row">
+        <div class="contact-info">
+          <span class="label text-muted">Kontakt</span>
+          <p class="phone display-4">+48 797 708 928</p>
+          <p class="hours">poniedziałek – piątek 8:00 – 16:00</p>
+          <a href="mailto:a.buzuk@personaldevelopment.com.pl" class="email-link text-white mb-3 d-block">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            a.buzuk@personaldevelopment.com.pl
+          </a>
+          <button class="btn-outline-light" id="showFormBtn" aria-haspopup="dialog">Wypełnij formularz</button>
+        </div>
+
+        <div class="contact-illustration text-center" aria-hidden="true">
+          <i class="fa-solid fa-envelope-open-text fa-7x text-light"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Здесь можно добавить другие блоки страницы -->
+  </main>
+
+  <!-- Modal (скрыт по умолчанию) -->
+  <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+    <div class="modal-content" role="document">
+      <button class="close-btn" id="closeFormBtn" aria-label="Zamknij">&times;</button>
+      <h2 id="contactModalTitle">Formularz kontaktowy</h2>
+
+      <form id="contactForm" action="https://formsubmit.co/ajax/a.buzuk@personaldevelopment.com.pl" method="POST" novalidate>
         <input type="hidden" name="_captcha" value="false">
         <div class="form-grid">
           <div class="form-group">
@@ -76,30 +86,37 @@
               <option value="inne">Inne</option>
             </select>
           </div>
+
           <div class="form-group">
             <label for="name">Imię i nazwisko <span>*</span></label>
             <input type="text" id="name" name="name" required />
           </div>
+
           <div class="form-group">
             <label for="phone">Numer telefonu <span>*</span></label>
             <input type="tel" id="phone" name="phone" required />
           </div>
+
           <div class="form-group">
             <label for="email">Adres e-mail <span>*</span></label>
             <input type="email" id="email" name="email" required />
           </div>
+
           <div class="form-group full-width">
             <label for="message">Treść zapytania <span>*</span></label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
+
           <div class="form-group full-width consent">
             <input type="checkbox" id="consent1" name="consent1" required />
             <label for="consent1">Wyrażam zgodę na przetwarzanie moich danych osobowych.</label>
           </div>
+
           <div class="form-group full-width consent">
             <input type="checkbox" id="consent2" name="consent2" />
             <label for="consent2">Wyrażam zgodę na otrzymywanie informacji handlowych.</label>
           </div>
+
           <div class="form-group full-width">
             <button type="submit" class="btn-primary w-100">Wyślij</button>
           </div>
@@ -108,44 +125,81 @@
     </div>
   </div>
 
-  <script>
-    const modal = document.getElementById('contactModal');
-    const showBtn = document.getElementById('showFormBtn');
-    const closeBtn = document.getElementById('closeFormBtn');
-
-    showBtn.onclick = () => modal.style.display = 'block';
-    closeBtn.onclick = () => modal.style.display = 'none';
-    window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
-
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      const res = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept':'application/json' }});
-      if (res.ok) {
-        form.innerHTML = '<p>Dziękujemy za wiadomość!<br>Skontaktujemy się w ciągu 24h.</p>';
-      } else {
-        alert('Coś poszło nie tak. Spróbuj ponownie później.');
-      }
-    });
-  </script>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="footer__info">
-      <a href="tel:+48797708928"><i class="fa-solid fa-phone"></i> +48 797 708 928</a>
-      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:a.buzuk@personaldevelopment.com.pl">a.buzuk@personaldevelopment.com.pl</a></p>
+      <a href="tel:+48797708928"><i class="fa-solid fa-phone" aria-hidden="true"></i> +48 797 708 928</a>
+      <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:a.buzuk@personaldevelopment.com.pl">a.buzuk@personaldevelopment.com.pl</a></p>
     </div>
+
     <div class="footer__social">
-      <a href="viber://chat?number=%2B48797708928" target="_blank"><i class="fa-brands fa-viber"></i></a>
-      <a href="https://wa.me/48797708928" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="https://t.me/YourTelegramUsername" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-      <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="viber://chat?number=%2B48797708928" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-viber"></i></a>
+      <a href="https://wa.me/48797708928" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://t.me/YourTelegramUsername" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i></a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
     </div>
   </footer>
 
+  <!-- JS -->
+  <script>
+    (function() {
+      const modal = document.getElementById('contactModal');
+      const showBtn = document.getElementById('showFormBtn');
+      const closeBtn = document.getElementById('closeFormBtn');
+      const contactForm = document.getElementById('contactForm');
 
+      if (!modal || !showBtn || !closeBtn || !contactForm) return;
+
+      let lastActive = null;
+
+      function openModal() {
+        lastActive = document.activeElement;
+        modal.classList.add('modal--open');
+        const first = modal.querySelector('input, select, textarea, button');
+        if (first) first.focus();
+        document.documentElement.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('modal--open');
+        document.documentElement.style.overflow = '';
+        if (lastActive) lastActive.focus();
+      }
+
+      showBtn.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+      closeBtn.addEventListener('click', function(e){ e.preventDefault(); closeModal(); });
+
+      modal.addEventListener('click', function(e){
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && modal.classList.contains('modal--open')) closeModal();
+      });
+
+      contactForm.addEventListener('submit', async function(e){
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: form.method || 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.innerHTML = '<p>Dziękujemy za wiadomość!<br>Skontaktujemy się w ciągu 24h.</p>';
+          } else {
+            alert('Coś poszło nie tak. Spróbuj ponownie później.');
+          }
+        } catch(err) {
+          console.error(err);
+          alert('Błąd sieci. Spróbuj ponownie.');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
