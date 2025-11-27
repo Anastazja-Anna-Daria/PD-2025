@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="./Blog.css">
 </head>
 <body>
+
 <header class="page-header">
   <div class="container">
     <div class="logo">
       <a href="./Strona-glówna.html">
-        <img src="./Photo/Zrzut ekranu 2025-06-25 120628.png" alt="Logo firmy" >
+        <img src="./Photo/Zrzut ekranu 2025-06-25 120628.png" alt="Logo firmy">
       </a>
     </div>
 
@@ -22,84 +23,416 @@
         <li><a href="./ONas.html">O nas</a></li>
         <li><a href="./Oferta.html">Oferta</a></li>
         <li><a href="./OfertyPracy.html">Oferty pracy</a></li>
-        <li><a href="./Blog.html">Blog</a></li>
+        <li><a href="./Blog.html" class="nav__link--active">Blog</a></li>
         <li><a href="./Kontakt.html">Kontakt</a></li>
       </ul>
     </nav>
   </div>
 </header>
-  <header class="blog-header">
-    <h1>Наш Блог: Работа, Советы, Возможности</h1>
-  </header>
 
-  <main class="blog-container">
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <h1>Наш блог: работа, документы и права в Польше</h1>
+    <p>Подборка проверенных материалов и официальных источников для работников и работодателей</p>
+  </div>
+</header>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post1.html">Вакансия: Сварщик 135/136 — Гданьск</a></h2>
-      <p class="post-date">26 июня 2025</p>
-      <p class="post-preview">Ищем опытных сварщиков MIG/MAG для работы на производстве...</p>
-    </article>
+<main class="blog-layout">
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post2.html">Как пройти собеседование в Польше: 5 советов</a></h2>
-      <p class="post-date">23 июня 2025</p>
-      <p class="post-preview">Подготовка к собеседованию — ключ к успешному трудоустройству...</p>
-    </article>
+  <section class="blog-main">
+    <div class="blog-posts-grid">
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post3.html">Легализация иностранцев в 2025 году — новые правила</a></h2>
-      <p class="post-date">20 июня 2025</p>
-      <p class="post-preview">С 1 июля изменятся процедуры получения zezwoleń...</p>
-    </article>
+      <!-- 1 -->
+      <article class="blog-card">
+        <a href="https://www.gov.pl/web/udsc-ru/rabota" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Работа иностранца в Польше.jpg" alt="Работа иностранцев в Польше">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Работа иностранца в Польше: официальные правила</h2>
+            <p class="blog-card-meta">Urząd do Spraw Cudzoziemców</p>
+            <p class="blog-card-excerpt">
+              Официальное объяснение, кто и на каких условиях может работать по карте побыта, что означает отметка
+              «доступ к рынку труда» и когда необходимо отдельное разрешение на работу.
+            </p>
+          </div>
+        </a>
+      </article>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post4.html">Работа в Польше без знания языка — реально?</a></h2>
-      <p class="post-date">18 июня 2025</p>
-      <p class="post-preview">Многие вакансии доступны даже без знания польского языка...</p>
-    </article>
+      <!-- 2 -->
+      <article class="blog-card">
+        <a href="https://www.gov.pl/web/udsc/legalizacja-pobytu-i-pracy-w-polsce" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Легализация пребывания и работы.jpg" alt="Легализация пребывания и работы">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Легализация пребывания и работы в Польше</h2>
+            <p class="blog-card-meta">Urząd do Spraw Cudzoziemców</p>
+            <p class="blog-card-excerpt">
+              Брошюры о легализации работы и пребывания на разных языках, в том числе на русском и украинском:
+              виды разрешений, сроки, основные шаги и документы.
+            </p>
+          </div>
+        </a>
+      </article>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post5.html">Топ-5 профессий для иностранцев в Польше</a></h2>
-      <p class="post-date">16 июня 2025</p>
-      <p class="post-preview">Сварщик, монтажник, оператор ЧПУ, разнорабочий, упаковщик...</p>
-    </article>
+      <!-- 3 -->
+      <article class="blog-card">
+        <a href="https://www.migrant.info.pl/ru/dokumenty-dajuschie-pravo-inostrancu-rabotat-v-polshe" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Документы для работы в Польше.png" alt="Документы для работы в Польше">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Документы, дающие право работать в Польше</h2>
+            <p class="blog-card-meta">Migrant.info.pl</p>
+            <p class="blog-card-excerpt">
+              Кратко о разрешении на временное пребывание и работу, видах разрешений на работу, когда нужно
+              заявление о поручении и как выбрать правильный тип документа.
+            </p>
+          </div>
+        </a>
+      </article>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post6.html">Как получить PESEL и что он даёт</a></h2>
-      <p class="post-date">14 июня 2025</p>
-      <p class="post-preview">PESEL нужен для медицины, счёта, документов. Как его оформить?</p>
-    </article>
+      <!-- 4 -->
+      <article class="blog-card">
+        <a href="https://psz.praca.gov.pl/documents/10240/42353333/%D0%A0%D0%90%D0%91%D0%9E%D0%A2%D0%90%2B%D0%92%2B%D0%9F%D0%9E%D0%9B%D0%AC%D0%A8%D0%95_%D0%98%D0%9D%D0%A4%D0%9E%D0%A0%D0%9C%D0%90%D0%A6%D0%98%D0%9E%D0%9D%D0%9D%D0%AB%D0%99%2B%D0%91%D0%AE%D0%9B%D0%9B%D0%95%D0%A2%D0%95%D0%9D%D0%AC%2B%D0%94%D0%9B%D0%AF%2B%D0%98%D0%9D%D0%9E%D0%A1%D0%A2%D0%A0%D0%90%D0%9D%D0%A6%D0%95%D0%92%2B%D0%98%D0%97%2B%D0%A2%D0%A0%D0%95%D0%A2%D0%AC%D0%98%D0%A5%2B%D0%A1%D0%A2%D0%A0%D0%90%D0%9D_RU.pdf/bd96705a-b5f3-6ac7-bc32-77ba6a4fa679?t=1756293781557"
+           target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Информационный бюллетень Работа в Польше.jpg" alt="Информационный бюллетень Работа в Польше">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Работа в Польше: информационный бюллетень для иностранцев</h2>
+            <p class="blog-card-meta">Портал службы занятости PSZ</p>
+            <p class="blog-card-excerpt">
+              Подробно о легальной работе: какие документы нужны, какие права вы получаете, минимальная зарплата,
+              куда жаловаться при нарушениях и как проверять работодателя.
+            </p>
+          </div>
+        </a>
+      </article>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post7.html">Что делать, если работодатель не платит вовремя</a></h2>
-      <p class="post-date">12 июня 2025</p>
-      <p class="post-preview">Порядок действий, если зарплата задерживается...</p>
-    </article>
+      <!-- 5 -->
+      <article class="blog-card">
+        <a href="https://psz.praca.gov.pl/documents/10240/42353333/ULOTKA%2BPRACA%2BW%2BPOLSCE_INFORMATOR%2BDLA%2BCUDZOZIEMC%C3%93W%2BZ%2BPA%C5%83STW%2BTRZECICH_PL.pdf/0ced644b-be07-bd0f-cc6c-e18ad65ba2d1?t=1756293699979"
+           target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Условия легальной работы.png" alt="Условия легальной работы">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Информатор о легальной работе в Польше для граждан третьих стран</h2>
+            <p class="blog-card-meta">PSZ Praca.gov.pl</p>
+            <p class="blog-card-excerpt">
+              Памятка для иностранцев: виды разрешений на работу, права работника, обязанности работодателя и основные
+              требования к легальному трудоустройству.
+            </p>
+          </div>
+        </a>
+      </article>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post8.html">Работа через аутсорсинг — плюсы и минусы</a></h2>
-      <p class="post-date">10 июня 2025</p>
-      <p class="post-preview">Что стоит знать перед тем, как согласиться на аутсорсинг...</p>
-    </article>
+      <!-- 6 -->
+      <article class="blog-card">
+        <a href="https://psz.praca.gov.pl/dla-bezrobotnych-i-poszukujacych-pracy/dla-cudzoziemcow" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Права и обязанности работников.jpg" alt="Информация для иностранцев на портале службы занятости">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Информация для иностранцев на портале службы занятости</h2>
+            <p class="blog-card-meta">PSZ Praca.gov.pl</p>
+            <p class="blog-card-excerpt">
+              Официальный раздел для иностранных работников: как искать вакансии, регистрироваться в управлении труда,
+              какие услуги доступны бесплатно.
+            </p>
+          </div>
+        </a>
+      </article>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post9.html">Какие документы нужны для легальной работы</a></h2>
-      <p class="post-date">8 июня 2025</p>
-      <p class="post-preview">Паспорт, виза/биометрия, zezwolenie, договор, адрес...</p>
-    </article>
+      <!-- 7 -->
+      <article class="blog-card">
+        <a href="https://www.pip.gov.pl/files/125/Publikacje/861/Pobyt-i-praca-w-PolsceUKPL.pdf" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Pрава и обязанности работников.jpg" alt="Права и обязанности работников">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Pobyt i praca w Polsce: права и обязанности работников</h2>
+            <p class="blog-card-meta">Państwowa Inspekcja Pracy</p>
+            <p class="blog-card-excerpt">
+              Брошюра о пребывании и работе: что обязан обеспечить работодатель, какие у вас права по Трудовому кодексу
+              и как действовать при нарушении договора.
+            </p>
+          </div>
+        </a>
+      </article>
 
-    <article class="blog-post">
-      <h2 class="post-title"><a href="post10.html">Как продлить визу или пребывание по биометрии</a></h2>
-      <p class="post-date">5 июня 2025</p>
-      <p class="post-preview">Пошаговая инструкция по подаче документов до окончания срока...</p>
-    </article>
+      <!-- 8 -->
+      <article class="blog-card">
+        <a href="https://migrant.poznan.uw.gov.pl/ru/sciezki/da-vam-kak-rabotodatelyu-neobhodimo" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/Что должен сделать работодатель, чтобы нанять иностранца.jpg" alt="Обязанности работодателя при приеме иностранца">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Что должен сделать работодатель, чтобы нанять иностранца</h2>
+            <p class="blog-card-meta">Воеводское управление в Познани</p>
+            <p class="blog-card-excerpt">
+              Пошагово для работодателя: когда нужно разрешение на работу, как подготовить заявление, в каких случаях
+              требуется изменение уже выданного документа.
+            </p>
+          </div>
+        </a>
+      </article>
 
-  </main>
+      <!-- 9 -->
+      <article class="blog-card">
+        <a href="https://tvojarabota.pl/informatsiyaopolshe/dokumenty-1930" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/трудоустройства.jpg" alt="Какие документы нужны иностранцу для трудоустройства">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Какие документы нужны для работы в Польше</h2>
+            <p class="blog-card-meta">Tvojarabota.pl</p>
+            <p class="blog-card-excerpt">
+              Обзор основных документов: загранпаспорт, виза или карта побыта, разрешение на работу, договор с
+              работодателем и дополнительные бумаги по ситуации.
+            </p>
+          </div>
+        </a>
+      </article>
 
- <footer class="footer">
+      <!-- 10 -->
+      <article class="blog-card">
+        <a href="https://consultant.net.pl/ru/statya-konsultanta/prava-rabotnika-inostrantsa-v-polshe-chto-nuzhno-znat" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-10.jpg" alt="Права работника иностранца">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Права работника-иностранца в Польше</h2>
+            <p class="blog-card-meta">Consultant.net.pl</p>
+            <p class="blog-card-excerpt">
+              Подробный материал о праве на равную оплату, отпуск, социальные гарантии и защите от дискриминации для
+              иностранцев, работающих по трудовому договору.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 11 -->
+      <article class="blog-card">
+        <a href="https://interwencjaprawna.pl/ru/tematika/prava-rabotnikov/" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-11.jpg" alt="Помощь в защите трудовых прав">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Права работников и помощь юристов</h2>
+            <p class="blog-card-meta">Ассоциация юридической помощи</p>
+            <p class="blog-card-excerpt">
+              О том, с какими нарушениями чаще всего сталкиваются иностранцы, куда можно обратиться за бесплатной
+              юридической поддержкой и стратегическими исками.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 12 -->
+      <article class="blog-card">
+        <a href="https://www.eurokadra.com/ru/sovet/%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D0%B2-%D0%BF%D0%BE%D0%BB%D1%8C%D1%88%D0%B5-%D0%B4%D0%BB%D1%8F-%D0%B8%D0%BD%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%86%D0%B5%D0%B2/"
+           target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-12.jpg" alt="Условия работы и нелегальная занятость">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Условия работы в Польше и последствия нелегальной занятости</h2>
+            <p class="blog-card-meta">Eurokadra</p>
+            <p class="blog-card-excerpt">
+              Чем грозит нелегальная работа для работника и работодателя, почему важно иметь правильные документы и
+              какие санкции предусмотрены законом.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 13 -->
+      <article class="blog-card">
+        <a href="https://in-poland.com/izmeneniya-k-zakonu-o-trudoustrojstve-inostrantsev/" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-13.jpg" alt="Изменения к закону о трудоустройстве иностранцев">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Изменения к закону о трудоустройстве иностранцев</h2>
+            <p class="blog-card-meta">In-Poland.com</p>
+            <p class="blog-card-excerpt">
+              Обзор последних поправок: новые требования к работодателям, усиление контроля легальности труда и
+              обновленные штрафы за нарушения.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 14 -->
+      <article class="blog-card">
+        <a href="https://mmwfplus.pl/ru/novye-pravila-raboty-v-polshe-chto-izmenitsya-v-2025-godu/" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-14.jpg" alt="Новые правила работы в Польше 2025">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Новые правила работы в Польше в 2025 году</h2>
+            <p class="blog-card-meta">MMWF Plus</p>
+            <p class="blog-card-excerpt">
+              Что меняется в 2025 году для работников и работодателей, какие новые механизмы защиты прав вводятся и
+              как это влияет на иностранных сотрудников.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 15 -->
+      <article class="blog-card">
+        <a href="https://www.inforlex.pl/dok/tresc%2CFOB0000000000006926422%2CNowe-zasady-zatrudniania-cudzoziemcow-od-1-czerwca-2025-r-Jak-przygotowac-sie-do-zmian.html"
+           target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-15.jpg" alt="Новые обязанности работодателя">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Новые правила найма иностранцев с 1 июня 2025 года</h2>
+            <p class="blog-card-meta">Inforlex</p>
+            <p class="blog-card-excerpt">
+              Электронизация процедур, подача документов только онлайн, новые обязанности по передаче копии договора и
+              информированию органов о трудоустройстве.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 16 -->
+      <article class="blog-card">
+        <a href="https://jobspot.agency/2025/09/24/jak-zatrudnic-cudzoziemca/" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-16.jpg" alt="Как нанять иностранца">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Как нанять иностранца в Польше: пошаговый гид для компаний</h2>
+            <p class="blog-card-meta">Jobspot</p>
+            <p class="blog-card-excerpt">
+              Руководство для работодателей: выбор процедуры, документы для работника, сроки, уведомления и типичные
+              ошибки при оформлении иностранца.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 17 -->
+      <article class="blog-card">
+        <a href="https://algl.legal/izmeneniya-zakonodatelstva-polsha-2025-yurist" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-17.jpg" alt="Изменения в трудовом законодательстве 2025">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Изменения в трудовом законодательстве Польши в 2025 году</h2>
+            <p class="blog-card-meta">ALG Legal</p>
+            <p class="blog-card-excerpt">
+              Повышение минимальной заработной платы, новая минимальная часовая ставка, изменения по стажу и взносам
+              ZUS по разным видам договоров.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 18 -->
+      <article class="blog-card">
+        <a href="https://bizky.ai/blog/%D0%BA%D0%B0%D0%BA-%D0%B8%D0%BD%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%86%D1%83-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-umowa-zlecenie-%D0%B8-umowa-o-dzielo-%D0%B2-%D0%BF%D0%BE%D0%BB%D1%8C/"
+           target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-18.jpg" alt="Umowa zlecenie и umowa o dzieło">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Umowa zlecenie и umowa o dzieło для иностранцев</h2>
+            <p class="blog-card-meta">Bizky.ai</p>
+            <p class="blog-card-excerpt">
+              Чем гражданско-правовые договоры отличаются от трудового, какие плюсы и минусы для работника и какие
+              социальные гарантии дает каждый вариант.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 19 -->
+      <article class="blog-card">
+        <a href="https://poland-consult.com/praca/trudovoj-dogovor" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-19.jpg" alt="Виды трудовых договоров в Польше">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Виды трудовых договоров в Польше и их особенности</h2>
+            <p class="blog-card-meta">Poland-consult.com</p>
+            <p class="blog-card-excerpt">
+              Краткое объяснение основных типов договоров: umowa o pracę, umowa zlecenie, umowa o dzieło и на что
+              обращать внимание перед подписанием.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 20 -->
+      <article class="blog-card">
+        <a href="https://hfhr.pl/upload/2022/01/education-and-work-for-foreigners-in-poland-ru.pdf" target="_blank" rel="noopener" class="blog-card-link">
+          <div class="blog-card-image-wrapper">
+            <img src="./Photo/blog-20.jpg" alt="Учеба и работа иностранцев">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Учеба и работа иностранцев в Польше: права и нарушения</h2>
+            <p class="blog-card-meta">Helsińska Fundacja Praw Człowieka</p>
+            <p class="blog-card-excerpt">
+              Брошюра о том, на каких условиях иностранцы могут учиться и работать в Польше, какие права имеют и что
+              делать при нарушении трудового законодательства.
+            </p>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <aside class="blog-sidebar">
+    <div class="sidebar-block">
+      <h3 class="sidebar-title">Поиск по материалам</h3>
+      <form class="sidebar-search-form" action="#" method="get">
+        <input type="search" class="sidebar-search-input" placeholder="Например: карта побыта, PESEL, umowa">
+      </form>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="sidebar-title">Темы</h3>
+      <ul class="sidebar-list">
+        <li>Легализация пребывания</li>
+        <li>Разрешения на работу</li>
+        <li>Права работников</li>
+        <li>Документы для трудоустройства</li>
+        <li>Изменения в законах</li>
+        <li>Работа без языка</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="sidebar-title">Полезные официальные ресурсы</h3>
+      <ul class="sidebar-links">
+        <li><a href="https://psz.praca.gov.pl" target="_blank" rel="noopener">Портал государственной службы занятости</a></li>
+        <li><a href="https://www.gov.pl/web/udsc" target="_blank" rel="noopener">Urząd do Spraw Cudzoziemców</a></li>
+        <li><a href="https://www.pip.gov.pl" target="_blank" rel="noopener">Państwowa Inspekcja Pracy</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <h3 class="sidebar-title">Нужна помощь с документами</h3>
+      <p class="sidebar-text">
+        Если вы не уверены, какие документы нужны или как реагировать на действия работодателя, вы можете связаться с нами.
+      </p>
+      <a href="./Kontakt.html" class="sidebar-button">Задать вопрос</a>
+    </div>
+  </aside>
+
+</main>
+
+<footer class="footer">
   <div class="footer__info">
     <a href="tel:+48797708928"><i class="fa-solid fa-phone"></i> +48 797 708 928</a>
-
     <p><i class="fa-solid fa-envelope"></i> <a href="mailto:a.buzuk@personaldevelopment.com.pl">a.buzuk@personaldevelopment.com.pl</a></p>
   </div>
 
