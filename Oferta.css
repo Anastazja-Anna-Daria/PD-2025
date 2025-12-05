@@ -1,0 +1,389 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+ width: 100%;
+margin: 0px;
+ font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* Header */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px; /* важно для вертикального центрирования */
+}
+
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  /* Прозрачный фон с размытием */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+
+  /* Лёгкая линия снизу */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  z-index: 999;
+}
+
+/* ЛОГО — центрируем по высоте и подгоняем размер */
+.logo {
+  display: flex;
+  align-items: center; /* вертикально выравнивает логотип внутри контейнера */
+  height: 100%;
+}
+.logo a { display: inline-flex; align-items: center; height: 100%; }
+.logo img {
+  height: 48px;        /* аккуратный размер для шапки */
+  width: auto;
+  display: block;
+  filter: brightness(1.6) contrast(1.05); /* осветлить логотип */
+  transition: transform 0.18s ease;
+}
+
+/* при желании — лёгкое увеличение логотипа при наведении */
+.logo a:hover img,
+.logo a:focus img {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Главное меню */
+.nav__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 36px; /* расстояние между пунктами меню */
+  align-items: center;
+}
+
+/* Ссылки — подготовка для псевдоэлемента ::after */
+.nav__list a {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  padding: 10px 0;
+  transition: color 0.2s ease;
+  outline: none; /* фокусируемся через :focus-visible ниже */
+}
+
+/* Псевдоэлемент — выезжающая полоска */
+.nav__list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;                   /* расстояние полоски от текста */
+  height: 3px;                    /* толщина полоски */
+  width: 100%;
+  background: linear-gradient(90deg, #1b9bff, #0660d8);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.34s cubic-bezier(.2,.9,.2,1), opacity 0.2s;
+  opacity: 0.98;
+  border-radius: 3px;
+  box-shadow: 0 6px 14px rgba(6,121,253,0.08); /* лёгкая тень для глубины */
+}
+
+/* Ховер / фокус — полоска выезжает */
+.nav__list a:hover::after,
+.nav__list a:focus::after,
+.nav__list a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Мягкое изменение цвета текста при взаимодействии */
+.nav__list a:hover,
+.nav__list a:focus,
+.nav__list a:focus-visible {
+  color: #ffffff;
+}
+
+/* Активный пункт меню (для текущей страницы) */
+.nav__list a.is-active::after,
+.nav__list li.is-active > a::after {
+  transform: scaleX(1);
+}
+
+/* Доступность: видимый фокус для клавиатуры */
+.nav__list a:focus-visible {
+  outline: 2px solid rgba(6,121,253,0.18);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+/* Oferta-main.css */
+:root{
+  --max-width: 1200px;
+  --accent: #267cff;
+  --muted: #6b7280;
+  --bg: #fbfdff;
+  --card-bg: #ffffff;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(16,24,40,0.06);
+  --container-pad: 40px;
+  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Container used inside main (not header) */
+.oferta-container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 36px var(--container-pad);
+  box-sizing: border-box;
+}
+
+/* HERO */
+.oferta-hero{
+  background: linear-gradient(180deg, rgba(6,40,80,0.65), rgba(6,40,80,0.5));
+  color: #fff;
+  padding: 64px 0;
+  display: flex;
+  align-items: center;
+}
+.oferta-hero__inner{
+  text-align: center;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.oferta-title{
+  font-size: 36px;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  font-weight: 800;
+}
+.oferta-lead{
+  font-size: 18px;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 22px;
+}
+.oferta-cta{
+  display: inline-block;
+  background: linear-gradient(90deg,var(--accent),#1761d9);
+  color: #fff;
+  padding: 12px 26px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(23,97,217,0.18);
+}
+
+/* Intro / two-column */
+.oferta-grid--2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.oferta-intro h2,
+.oferta-why h2,
+.section-title{
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #0f1724;
+  font-weight: 800;
+}
+.oferta-intro p{
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* WHY / benefits list */
+.oferta-why{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.oferta-benefits{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  list-style: none;
+  margin-top: 18px;
+  padding: 0;
+}
+.oferta-benefits li{
+  background: var(--card-bg);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15,23,42,0.03);
+}
+.oferta-benefits h3{
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #0f1724;
+}
+.oferta-benefits p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* SERVICES grid */
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+.service{
+  background: var(--card-bg);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15,23,42,0.03);
+}
+.service h4{
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+.service p{ color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+/* simple lists */
+.simple-list{ list-style: none; padding-left: 0; margin-top: 8px; }
+.simple-list li{
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: #374151;
+  position: relative;
+}
+.simple-list li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* process */
+.process{
+  margin-top: 12px;
+  padding-left: 18px;
+  color: #374151;
+  line-height: 1.8;
+}
+.oferta-note{ margin-top: 14px; color: var(--muted); }
+
+/* guarantee / cta block */
+.oferta-cta-block{
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg,#ffffff,#fcfdff);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15,23,42,0.02);
+}
+.oferta-cta-wrap{ text-align: right; }
+.oferta-cta--secondary{
+  display: inline-block;
+  margin-top: 8px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.oferta-cta--secondary:hover{ background: rgba(38,124,255,0.06); }
+
+/* contact small */
+.contact{ margin-top: 10px; font-size: 14px; color: var(--muted); }
+.contact a{ color: var(--accent); text-decoration: none; }
+
+/* spacing helpers */
+.section-title{ text-align: center; margin-bottom: 12px; }
+.oferta-services, .oferta-benefit-client, .oferta-process, .oferta-guarantee{ padding-top: 24px; padding-bottom: 24px; }
+
+
+
+
+
+
+
+.footer {
+  background: #000;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+}
+
+.footer__info {
+  display: flex;
+  gap: 30px; /* Расстояние между номером и email */
+  align-items: center;
+}
+
+
+.footer__info a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer__social a {
+  color: white;
+  font-size: 30px;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer__social a:hover {
+  color: #267cff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsiveness */
+@media (max-width: 980px){
+  .oferta-grid--2{ grid-template-columns: 1fr; }
+  .services-grid{ grid-template-columns: repeat(2, 1fr); }
+  .oferta-benefits{ grid-template-columns: 1fr; }
+  .oferta-cta-block{ grid-template-columns: 1fr; text-align: left; }
+  .oferta-cta-wrap{ text-align: left; margin-top: 12px; }
+}
+
+@media (max-width: 560px){
+  .services-grid{ grid-template-columns: 1fr; }
+  .oferta-title{ font-size: 26px; }
+  .oferta-lead{ font-size: 15px; }
+  .oferta-container{ padding: 24px 18px; }
+}
